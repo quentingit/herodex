@@ -17,6 +17,8 @@ Ce projet utilise les technologies et outils suivants :
 - **lint-staged** : Exécute des scripts (linting, formattage) uniquement sur les fichiers modifiés.
 - **Commitlint** : Vérifie que les messages de commit respectent les conventions définies.
 - **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
+- **Storybook** : Outil pour développer et documenter les composants de manière isolée.
+- **Chart.js** :  Librairie puissante pour créer des graphiques interactifs et visuels.
 
 ---
 
