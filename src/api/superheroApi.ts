@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { transformHeroData } from './schemas/heroSchema';
 
-const BASE_URL = '/api/';
+const BASE_URL = '/api/proxy';
 
 export const api = axios.create({
   baseURL: BASE_URL,
