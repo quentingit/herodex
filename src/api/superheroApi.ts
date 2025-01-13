@@ -6,38 +6,71 @@ export const api = axios.create({
   baseURL: BASE_URL,
 });
 
-export const getHeroById = async (id: string) => {
-  const response = await api.get(`/${id}`);
-  const hero = response.data;
+export type HeroData = {
+  name: string;
+  fullName: string;
+  alignment: string;
+  intelligence: string;
+  strength: string;
+  speed: string;
+  durability: string;
+  power: string;
+  combat: string;
+  height: string;
+  weight: string;
+  eyeColor: string;
+  hairColor: string;
+  occupation: string;
+  firstAppearance: string;
+  groupAffiliation: string;
+  relatives: string;
+  imageUrl: string;
+};
 
+export const transformHeroData = (hero: any): HeroData => {
   return {
-    name: hero.name,
-    fullName: hero.biography['full-name'],
-    alignment: hero.biography.alignment,
-    intelligence: hero.powerstats.intelligence,
-    strength: hero.powerstats.strength,
-    speed: hero.powerstats.speed,
-    durability: hero.powerstats.durability,
-    power: hero.powerstats.power,
-    combat: hero.powerstats.combat,
-    height: hero.appearance.height[1],
-    weight: hero.appearance.weight[1],
-    eyeColor: hero.appearance['eye-color'],
-    hairColor: hero.appearance['hair-color'],
-    occupation: hero.work.occupation,
-    firstAppearance: hero.biography['first-appearance'],
-    groupAffiliation: hero.connections['group-affiliation'],
-    relatives: hero.connections.relatives,
-    imageUrl: hero.image.url,
+    name: hero.name || 'Unknown Name',
+    fullName: hero.biography?.['full-name'] || 'Unknown Full Name',
+    alignment: hero.biography?.alignment || 'neutral',
+    intelligence: hero.powerstats?.intelligence || '0',
+    strength: hero.powerstats?.strength || '0',
+    speed: hero.powerstats?.speed || '0',
+    durability: hero.powerstats?.durability || '0',
+    power: hero.powerstats?.power || '0',
+    combat: hero.powerstats?.combat || '0',
+    height:
+      (hero.appearance?.height && hero.appearance.height[1]) ||
+      'Unknown Height',
+    weight:
+      (hero.appearance?.weight && hero.appearance.weight[1]) ||
+      'Unknown Weight',
+    eyeColor: hero.appearance?.['eye-color'] || 'Unknown Eye Color',
+    hairColor: hero.appearance?.['hair-color'] || 'Unknown Hair Color',
+    occupation: hero.work?.occupation || 'Unknown Occupation',
+    firstAppearance:
+      hero.biography?.['first-appearance'] || 'Unknown First Appearance',
+    groupAffiliation: hero.connections?.['group-affiliation'] || 'None',
+    relatives: hero.connections?.relatives || 'Unknown Relatives',
+    imageUrl: hero.image?.url || 'null',
   };
 };
 
-export const searchHeroByName = async (name: string) => {
-  const response = await api.get(`/search/${name}`);
-  return response.data;
+export const getHeroById = async (id: string) => {
+  const response = await api.get(`/${id}`);
+  return transformHeroData(response.data);
 };
 
-export const getAllHeroes = async () => {
-  const response = await api.get(`/heroes`);
-  return response.data;
+export const searchHeroByName = async (name: string): Promise<number[]> => {
+  const response = await api.get(`/search/${name}`);
+  const data = response.data;
+
+  if (data.response !== 'success') {
+    throw new Error('No heroes found');
+  }
+
+  if (!data.results || data.results.length === 0) {
+    throw new Error('No heroes found for the given name');
+  }
+
+  return data.results.map((hero: any) => hero.id);
 };
