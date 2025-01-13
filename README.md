@@ -19,6 +19,8 @@ Ce projet utilise les technologies et outils suivants :
 - **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
 - **Storybook** : Outil pour développer et documenter les composants de manière isolée.
 - **Chart.js** :  Librairie puissante pour créer des graphiques interactifs et visuels.
+- **TailwindCSS** :  Framework CSS utilitaire pour un développement rapide et des designs modernes.
+- **React Query** :  Gestionnaire de requêtes et de cache côté client pour des données performantes et synchronisées.
 
 ---
 
