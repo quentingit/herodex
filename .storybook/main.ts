@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
+    '@storybook/addon-postcss',
     '@storybook/addon-interactions',
   ],
   framework: {

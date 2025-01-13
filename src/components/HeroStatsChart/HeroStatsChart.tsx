@@ -1,32 +1,64 @@
 import React from 'react';
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
   Tooltip,
   Legend
 );
 
-const HeroStatsChart = () => {
+type HeroStatsChartProps = {
+  intelligence: string;
+  strength: string;
+  speed: string;
+  durability: string;
+  power: string;
+  combat: string;
+};
+
+const HeroStatsChart: React.FC<HeroStatsChartProps> = ({
+  intelligence,
+  strength,
+  speed,
+  durability,
+  power,
+  combat,
+}) => {
   const data = {
-    labels: ['Strength', 'Speed', 'Intelligence'],
+    labels: [
+      'Intelligence',
+      'Strength',
+      'Speed',
+      'Durability',
+      'Power',
+      'Combat',
+    ],
     datasets: [
       {
-        label: 'Stats',
-        data: [80, 90, 70],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        label: 'Hero Stats',
+        data: [
+          Number(intelligence),
+          Number(strength),
+          Number(speed),
+          Number(durability),
+          Number(power),
+          Number(combat),
+        ],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
       },
     ],
   };
@@ -37,14 +69,15 @@ const HeroStatsChart = () => {
       legend: {
         position: 'top' as const,
       },
-      title: {
-        display: true,
-        text: 'Superhero Stats',
+    },
+    scales: {
+      r: {
+        beginAtZero: true,
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return <Radar data={data} options={options} />;
 };
 
 export default HeroStatsChart;

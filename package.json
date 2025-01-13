@@ -5,6 +5,7 @@
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": ".eslintrc.js",
   "dependencies": {
+    "@tanstack/react-query": "^5.64.1",
     "acorn": "^8.14.0",
     "acorn-jsx": "^5.3.2",
     "ajv": "^6.12.6",
@@ -25,7 +26,6 @@
     "array.prototype.tosorted": "^1.1.4",
     "arraybuffer.prototype.slice": "^1.0.4",
     "asynckit": "^0.4.0",
-    "autoprefixer": "^10.4.20",
     "available-typed-arrays": "^1.0.7",
     "axios": "^1.7.9",
     "babel-jest": "^29.7.0",
@@ -322,7 +322,6 @@
     "pirates": "^4.0.6",
     "pkg-dir": "^4.2.0",
     "possible-typed-array-names": "^1.0.0",
-    "postcss": "^8.4.49",
     "postcss-import": "^15.1.0",
     "postcss-js": "^4.0.1",
     "postcss-load-config": "^4.0.2",
@@ -399,7 +398,6 @@
     "sucrase": "^3.35.0",
     "supports-color": "^7.2.0",
     "supports-preserve-symlinks-flag": "^1.0.0",
-    "tailwindcss": "^3.4.17",
     "test-exclude": "^6.0.0",
     "thenify": "^3.3.1",
     "thenify-all": "^1.6.0",
@@ -449,6 +447,7 @@
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/blocks": "^8.4.7",
     "@storybook/react": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
@@ -458,12 +457,15 @@
     "@typescript-eslint/eslint-plugin": "^8.19.1",
     "@typescript-eslint/parser": "^8.19.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-storybook": "^0.11.2",
+    "postcss": "^8.4.49",
     "prettier": "^3.4.2",
-    "storybook": "^8.4.7"
+    "storybook": "^8.4.7",
+    "tailwindcss": "^3.4.17"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

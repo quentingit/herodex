@@ -1,2 +1,2 @@
-export { default as SuperheroCard } from './SuperheroCard';
-export { default as HeroStatsChart } from './HeroStatsChart';
+export { default as SuperheroCard } from './SuperheroCard/SuperheroCard';
+export { default as HeroStatsChart } from './HeroStatsChart/HeroStatsChart';
