@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => {
       environment: 'jsdom',
       setupFiles: './vitest.setup.ts',
     },
+    define: {
+      'process.env': env,
+    },
     server: {
       proxy: {
         '/api': {
