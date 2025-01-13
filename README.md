@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# **Herodex**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Herodex** est un tableau de bord interactif pour explorer les statistiques et informations sur les super-héros.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Stack technique**
 
-## Expanding the ESLint configuration
+Ce projet utilise les technologies et outils suivants :
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React** : Librairie JavaScript pour construire des interfaces utilisateur interactives.
+- **TypeScript** : Super-ensemble de JavaScript pour un typage statique et une meilleure maintenabilité du code.
+- **Vite** : Outil de build rapide et léger pour les applications web modernes.
+- **ESLint** : Outil de linting pour identifier et corriger les erreurs de code.
+- **Prettier** : Formateur de code pour un style de code cohérent.
+- **Husky** : Outil pour ajouter des hooks Git, comme l'exécution automatique de tests ou de linting avant les commits.
+- **lint-staged** : Exécute des scripts (linting, formattage) uniquement sur les fichiers modifiés.
+- **Commitlint** : Vérifie que les messages de commit respectent les conventions définies.
+- **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## **Installation**
+
+### 1. Prérequis
+- Node.js v18 ou supérieur
+- npm ou yarn
+
+### 2. Cloner le dépôt
+```
+git clone https://github.com/username/herodex.git
+cd herodex
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
+### 3. Installer les dépendances
 ```
+npm install
+```
+
+### 4. Démarrer le projet
+```
+npm run dev
+```
+
+Accède à l’application sur [http://localhost:5173](http://localhost:5173).
