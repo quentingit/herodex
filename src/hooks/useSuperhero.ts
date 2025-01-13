@@ -20,24 +20,34 @@ export const useSuperhero = () => {
   };
 
   const searchHero = async (query: string) => {
+    if (!query.trim()) {
+      setSearchError('Please enter a valid hero name.');
+      setShowModal(true);
+      setTimeout(() => setShowModal(false), 3000);
+      return;
+    }
+
     try {
       const heroes = await searchHeroByName(query);
-      if (heroes && heroes.length > 0) {
+
+      if (heroes.length > 0) {
         setHeroIds((prevIds) => [
           ...prevIds,
           ...heroes.filter((id) => !prevIds.includes(id)),
         ]);
         setSearchError(null);
       } else {
-        setSearchError('No heroes found with that name.');
-        setShowModal(true);
-        setTimeout(() => setShowModal(false), 3000);
+        handleSearchError('No heroes found with that name.');
       }
     } catch (error) {
-      setSearchError(error.message || 'Error searching for hero.');
-      setShowModal(true);
-      setTimeout(() => setShowModal(false), 3000);
+      handleSearchError(error.message || 'Error searching for hero.');
     }
+  };
+
+  const handleSearchError = (message: string) => {
+    setSearchError(message);
+    setShowModal(true);
+    setTimeout(() => setShowModal(false), 3000);
   };
 
   return {

@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => {
         '@': '/src',
       },
     },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './vitest.setup.ts',
+    },
     server: {
       proxy: {
         '/api': {
