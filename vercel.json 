@@ -1,19 +1,27 @@
-{
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/proxy/:path*",
-      "destination": "/api/proxy.js?path=:path*"
-    }
-  ]
+import axios from 'axios';
+
+export default async function handler(req, res) {
+  const { path } = req.query;
+
+  try {
+    const targetUrl = `https://superheroapi.com/api/${process.env.SUPERHERO_API_KEY}/${path}`;
+    console.log('Target URL:', targetUrl);
+
+    const response = await axios({
+      method: req.method,
+      url: targetUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        Origin: undefined,
+        Referer: undefined,
+      },
+      data: req.body,
+    });
+
+    res.status(response.status).json(response.data);
+  } catch (error) {
+    res
+      .status(error.response?.status || 500)
+      .json({ error: 'Proxy request failed', details: error.message });
+  }
 }
