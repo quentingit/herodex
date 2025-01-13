@@ -1,27 +1,39 @@
 # **Herodex**
 
-**Herodex** est un tableau de bord interactif pour explorer les statistiques et informations sur les super-héros.
+**Herodex** est un petit projet réalisé en une journée pour démontrer la création d’une application en suivant de bonnes pratiques de développement. Il intègre TypeScript pour un typage robuste, ESLint et Prettier pour un code propre, et des outils comme Husky, lint-staged et Commitlint pour des commits de qualité. L’interface utilisateur utilise React, TailwindCSS pour un design rapide, et Storybook pour documenter les composants. Les données sont gérées avec Axios et React Query, tandis que Zod valide les réponses API. Enfin, des tests automatisés avec Vitest et React Testing Library assurent la fiabilité du projet.
 
----
+### Fonctionnalités de Herodex
 
-## **Stack technique**
+Herodex est un tableau de bord interactif qui permet d'explorer et de visualiser des super-héros de manière intuitive. Grâce à l’API [SuperheroAPI](https://superheroapi.com/), il est possible de rechercher des super-héros par leur ID ou leur nom. Par défaut, une carte aléatoire de super-héros est générée à l’ouverture de l’application. Vous pouvez ajouter d’autres super-héros aléatoires ou les rechercher par leur nom, et les supprimer individuellement si nécessaire. Chaque super-héros dispose d’une carte interactive qui affiche ses statistiques et des informations détaillées pour une meilleure exploration.
 
-Ce projet utilise les technologies et outils suivants :
+## **Stack technique** 
 
+#### Développement Frontend
 - **React** : Librairie JavaScript pour construire des interfaces utilisateur interactives.
 - **TypeScript** : Super-ensemble de JavaScript pour un typage statique et une meilleure maintenabilité du code.
+- **TailwindCSS** : Framework CSS utilitaire pour un développement rapide et des designs modernes.
+- **Storybook** : Outil pour développer et documenter les composants de manière isolée.
+- **Chart.js** : Librairie puissante pour créer des graphiques interactifs et visuels.
+
+#### Outils de Build et de Qualité
 - **Vite** : Outil de build rapide et léger pour les applications web modernes.
 - **ESLint** : Outil de linting pour identifier et corriger les erreurs de code.
 - **Prettier** : Formateur de code pour un style de code cohérent.
 - **Husky** : Outil pour ajouter des hooks Git, comme l'exécution automatique de tests ou de linting avant les commits.
 - **lint-staged** : Exécute des scripts (linting, formattage) uniquement sur les fichiers modifiés.
 - **Commitlint** : Vérifie que les messages de commit respectent les conventions définies.
-- **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
-- **Storybook** : Outil pour développer et documenter les composants de manière isolée.
-- **Chart.js** :  Librairie puissante pour créer des graphiques interactifs et visuels.
-- **TailwindCSS** :  Framework CSS utilitaire pour un développement rapide et des designs modernes.
-- **React Query** :  Gestionnaire de requêtes et de cache côté client pour des données performantes et synchronisées.
 
+#### Gestion de Données et API
+- **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
+- **React Query** : Gestionnaire de requêtes et de cache côté client pour des données performantes et synchronisées.
+- **React Query Devtools** : Outil de développement pour inspecter et gérer les requêtes dans React Query.
+
+#### Validation et Schémas
+- **Zod** : Librairie de validation et de schémas TypeScript pour des données robustes.
+
+#### Tests
+- **React Testing Library** : Outil pour tester les composants React de manière efficace et fiable.
+- **Vitest** : Framework de test moderne et rapide, optimisé pour Vite.
 ---
 
 ## **Installation**
