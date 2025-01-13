@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { transformHeroData } from './schemas/heroSchema';
 
-const BASE_URL = '/api';
+const BASE_URL =
+  import.meta.env.MODE === 'development'
+    ? '/api'
+    : `https://superheroapi.com/api/${import.meta.env.VITE_SUPERHERO_API_KEY}`;
 
 export const api = axios.create({
   baseURL: BASE_URL,
