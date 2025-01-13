@@ -140,6 +140,7 @@
     "form-data": "^4.0.1",
     "fraction.js": "^4.3.7",
     "fs.realpath": "^1.0.0",
+    "fsevents": "^2.3.3",
     "function-bind": "^1.1.2",
     "function.prototype.name": "^1.1.8",
     "functions-have-names": "^1.2.3",
@@ -495,7 +496,8 @@
     "format": "prettier --write .",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build --output-dir storybook-static",
+    "build-all": "npm run build && npm run build-storybook"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.3"
