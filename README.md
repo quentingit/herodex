@@ -1,6 +1,6 @@
 # **Herodex**
 
-Le projet **Herodex** est déployé en ligne et accessible sur [Vercel](https://herodex-git-dev-quentin-s-projects-1c49e330.vercel.app/) , ou [https://herodex-git-dev-quentin-s-projects-1c49e330.vercel.app/](https://herodex-git-dev-quentin-s-projects-1c49e330.vercel.app/)
+Le projet **Herodex** est déployé en ligne et accessible sur [Vercel](https://herodex-teal.vercel.app) , ou [herodex-teal.vercel.app](https://herodex-teal.vercel.app)
 
 **Herodex** est un petit projet réalisé en une journée pour démontrer la création d’une application en suivant de bonnes pratiques de développement. Il intègre TypeScript pour un typage robuste, ESLint et Prettier pour un code propre, et des outils comme Husky, lint-staged et Commitlint pour des commits respectant les standards. L’interface utilisateur utilise React, TailwindCSS pour un design rapide, et Storybook pour documenter les composants. Les données sont gérées avec Axios et React Query, tandis que Zod valide les réponses API. Enfin, des tests automatisés avec Vitest et React Testing Library assurent la fiabilité du projet. Le déploiement est automatique, configuré avec Vercel, incluant un proxy pour gérer les requêtes API et les clés en développement comme en production, tout en respectant les politiques CORS.
 
