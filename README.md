@@ -60,7 +60,7 @@ Ces ajustements ont permis de gérer les contraintes liées aux politiques CORS 
 ---
 ## **Déploiement**
 
-Le déploiement de l'application est entièrement automatisé grâce à **Vercel**, garantissant que chaque modification validée est mise en ligne de manière fluide. Les branches principales sont protégées, et un workflow GitHub Actions exécute automatiquement les tests avec **Vitest** pour chaque pull request. Cette configuration assure que seul un code testé et validé peut être fusionné, renforçant ainsi la qualité et la stabilité du projet.
+Le déploiement de l’application est entièrement automatisé grâce à **Vercel**, garantissant que chaque modification validée est mise en ligne de manière fluide. Les branches principales sont protégées, et un workflow GitHub Actions exécute automatiquement les tests avec Vitest ainsi qu’une vérification de la qualité du code avec ESLint pour chaque pull request.  Cette configuration assure que seul un code testé et validé peut être fusionné, renforçant ainsi la qualité et la stabilité du projet.
 
 ![Github déploiement](./docs/assets/checks-github.png)
 ---
