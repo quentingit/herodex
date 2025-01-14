@@ -10,7 +10,6 @@ export const getHeroById = async (id: string) => {
     const url = import.meta.env.PROD
       ? `${BASE_PROXY_URL}?path=${id}`
       : `${BASE_PROXY_URL}/${id}`;
-
     const response = await axios.get(url);
     return transformHeroData(response.data);
   } catch (error) {
@@ -37,8 +36,6 @@ export const searchHeroByName = async (name: string): Promise<number[]> => {
 
     return data.results.map((hero: any) => parseInt(hero.id, 10));
   } catch (error) {
-    throw new Error(
-      `Failed to search heroes by name "${name}". ${error.message}`
-    );
+    throw new Error(`Failed to search heroes by name "${name}" !`);
   }
 };
