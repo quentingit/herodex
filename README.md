@@ -10,6 +10,16 @@ Le projet **Herodex** est déployé en ligne et accessible sur [Vercel](https://
 
 Herodex est un tableau de bord interactif qui permet d'explorer et de visualiser des super-héros de manière intuitive. Grâce à l’API [SuperheroAPI](https://superheroapi.com/), il est possible de rechercher des super-héros par leur ID ou leur nom. Par défaut, une carte aléatoire de super-héros est générée à l’ouverture de l’application. Vous pouvez ajouter d’autres super-héros aléatoires ou les rechercher par leur nom, et les supprimer individuellement si nécessaire. Chaque super-héros dispose d’une carte interactive qui affiche ses statistiques et des informations détaillées pour une meilleure exploration. 
 
+---
+### **Pour accéder au storybook**
+
+Le **Storybook** du projet est automatiquement déployé grâce à un workflow GitHub Actions. À chaque mise à jour, les fichiers statiques sont générés et publiés sur GitHub Pages, rendant la documentation et les composants interactifs disponibles en ligne à l’adresse suivante : [https://quentingit.github.io/herodex/](https://quentingit.github.io/herodex/)
+
+<img src="./docs/assets/storybook.png" alt="Storybook" style="width: 50%; height: auto;" />
+
+
+---
+
 ## **Stack technique** 
 
 #### Développement Frontend
@@ -105,7 +115,6 @@ Accède à l’application sur [http://localhost:5173](http://localhost:5173).
 npm run storybook
 ```
 
-<img src="./docs/assets/storybook.png" alt="Storybook" style="width: 50%; height: auto;" />
 
 
 
