@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { path } = req.query;
 
   try {
-    const targetUrl = `https://superheroapi.com/api/${process.env.SUPERHERO_API_KEY}/${path}`;
+    const targetUrl = `https://superheroapi.com/api/${process.env.VITE_SUPERHERO_API_KEY}/${path}`;
     console.log('Target URL:', targetUrl);
 
     const response = await axios({
