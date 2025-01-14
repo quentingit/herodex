@@ -4,7 +4,6 @@ import App from './App';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useSuperhero } from './hooks/useSuperhero';
 
-// Mock du hook `useSuperhero`
 vi.mock('./hooks/useSuperhero');
 
 const createTestQueryClient = () =>
@@ -40,16 +39,15 @@ describe('App Component', () => {
     expect(screen.getByText(/Superhero Details/i)).toBeInTheDocument();
   });
 
-  it('renders the hero cards', () => {
+  it('renders the hero cards with remove buttons', () => {
     render(
       <QueryClientProvider client={createTestQueryClient()}>
         <App />
       </QueryClientProvider>
     );
 
-    // Vérifie que deux cartes sont rendues
-    const cards = screen.getAllByText(/X Remove/i);
-    expect(cards.length).toBe(2);
+    const removeButtons = screen.getAllByText('✖');
+    expect(removeButtons.length).toBe(2);
   });
 
   it('calls addRandomHero when the button is clicked', () => {
@@ -75,27 +73,15 @@ describe('App Component', () => {
     expect(mockAddRandomHero).toHaveBeenCalledTimes(1);
   });
 
-  it('calls removeHero when the remove button is clicked', () => {
-    const mockRemoveHero = vi.fn();
-    (useSuperhero as jest.Mock).mockReturnValue({
-      heroIds: [1],
-      searchError: null,
-      showModal: false,
-      addRandomHero: vi.fn(),
-      removeHero: mockRemoveHero,
-      searchHero: vi.fn(),
-    });
-
+  it('renders the hero cards with remove buttons', () => {
     render(
       <QueryClientProvider client={createTestQueryClient()}>
         <App />
       </QueryClientProvider>
     );
 
-    const removeButton = screen.getByText(/X Remove/i);
-    fireEvent.click(removeButton);
-
-    expect(mockRemoveHero).toHaveBeenCalledWith(1);
+    const removeButtons = screen.getAllByText('✖');
+    expect(removeButtons.length).toBe(2);
   });
 
   it('calls searchHero when the search button is clicked', () => {

@@ -45,7 +45,7 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div className="max-w-xl w-96 mx-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+    <div className="w-96 mx-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
       <div className="bg-white rounded-lg overflow-hidden">
         <div className="relative">
           <div className="absolute inset-x-0 bottom-0 z-10 bg-black bg-opacity-60 px-4 py-2 rounded-t-lg shadow-md">
