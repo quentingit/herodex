@@ -15,6 +15,8 @@ export default async function handler(req, res) {
       url: targetUrl,
       headers: {
         'Content-Type': 'application/json',
+        Origin: undefined,
+        Referer: undefined,
       },
       data: req.body,
     });
