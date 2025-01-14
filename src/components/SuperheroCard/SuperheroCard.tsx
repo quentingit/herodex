@@ -44,6 +44,60 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({
 }) => {
   const [showDetails, setShowDetails] = useState(false);
 
+  const alignmentStyle = `mt-3 px-3 py-1 text-md font-semibold text-white rounded-full shadow-md inline-block ${
+    alignment === 'good'
+      ? 'bg-green-500 hover:bg-green-600'
+      : alignment === 'bad'
+        ? 'bg-red-500 hover:bg-red-600'
+        : 'bg-gray-500 hover:bg-gray-600'
+  } transform transition-transform hover:scale-105`;
+
+  const handleToggleDetails = () => setShowDetails(!showDetails);
+
+  const detailsSection = showDetails && (
+    <div className="mt-6">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <h4 className="text-lg font-bold text-gray-700">Appearance:</h4>
+          <ul className="mt-2 text-sm text-gray-600">
+            <li>
+              <span className="font-semibold">Height:</span> {height}
+            </li>
+            <li>
+              <span className="font-semibold">Weight:</span> {weight}
+            </li>
+            <li>
+              <span className="font-semibold">Eye Color:</span> {eyeColor}
+            </li>
+            <li>
+              <span className="font-semibold">Hair Color:</span> {hairColor}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 className="mt-6 text-lg font-bold text-gray-700">Biography:</h4>
+      <ul className="mt-2 text-sm text-gray-600">
+        <li>
+          <span className="font-semibold">Occupation:</span> {occupation}
+        </li>
+        <li>
+          <span className="font-semibold">First Appearance:</span>{' '}
+          {firstAppearance}
+        </li>
+      </ul>
+
+      <h4 className="mt-6 text-lg font-bold text-gray-700">Connections:</h4>
+      <p className="mt-2 text-sm text-gray-600">
+        <span className="font-semibold">Group Affiliation:</span>{' '}
+        {groupAffiliation}
+      </p>
+      <p className="mt-2 text-sm text-gray-600">
+        <span className="font-semibold">Relatives:</span> {relatives}
+      </p>
+    </div>
+  );
+
   return (
     <div className="w-96 mx-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
       <div className="bg-white rounded-lg overflow-hidden">
@@ -57,15 +111,7 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({
               &nbsp;
               <span className="text-white truncate">{fullName}</span>
             </h3>
-            <p
-              className={`mt-3 px-3 py-1 text-md font-semibold text-white rounded-full shadow-md inline-block ${
-                alignment === 'good'
-                  ? 'bg-green-500 hover:bg-green-600'
-                  : alignment === 'bad'
-                    ? 'bg-red-500 hover:bg-red-600'
-                    : 'bg-gray-500 hover:bg-gray-600'
-              } transform transition-transform hover:scale-105`}
-            >
+            <p className={alignmentStyle}>
               {alignment.charAt(0).toUpperCase() + alignment.slice(1)}
             </p>
           </div>
@@ -88,62 +134,11 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({
             />
           </div>
 
-          {showDetails && (
-            <div className="mt-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h4 className="text-lg font-bold text-gray-700">
-                    Appearance:
-                  </h4>
-                  <ul className="mt-2 text-sm text-gray-600">
-                    <li>
-                      <span className="font-semibold">Height:</span> {height}
-                    </li>
-                    <li>
-                      <span className="font-semibold">Weight:</span> {weight}
-                    </li>
-                    <li>
-                      <span className="font-semibold">Eye Color:</span>{' '}
-                      {eyeColor}
-                    </li>
-                    <li>
-                      <span className="font-semibold">Hair Color:</span>{' '}
-                      {hairColor}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <h4 className="mt-6 text-lg font-bold text-gray-700">
-                Biography:
-              </h4>
-              <ul className="mt-2 text-sm text-gray-600">
-                <li>
-                  <span className="font-semibold">Occupation:</span>{' '}
-                  {occupation}
-                </li>
-                <li>
-                  <span className="font-semibold">First Appearance:</span>{' '}
-                  {firstAppearance}
-                </li>
-              </ul>
-
-              <h4 className="mt-6 text-lg font-bold text-gray-700">
-                Connections:
-              </h4>
-              <p className="mt-2 text-sm text-gray-600">
-                <span className="font-semibold">Group Affiliation:</span>{' '}
-                {groupAffiliation}
-              </p>
-              <p className="mt-2 text-sm text-gray-600">
-                <span className="font-semibold">Relatives:</span> {relatives}
-              </p>
-            </div>
-          )}
+          {detailsSection}
 
           <div className="flex justify-center mt-6">
             <button
-              onClick={() => setShowDetails(!showDetails)}
+              onClick={handleToggleDetails}
               className="px-6 py-2 bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white font-bold text-sm rounded-full shadow-lg hover:shadow-2xl transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300"
             >
               {showDetails ? 'Hide Details' : 'View More'}

@@ -1,11 +1,17 @@
 import axios from 'axios';
 import { transformHeroData } from './schemas/heroSchema';
 
-const BASE_PROXY_URL = import.meta.env.VITE_API_PROXY_URL.replace(/\/$/, '');
+const BASE_PROXY_URL = import.meta.env.PROD
+  ? import.meta.env.VITE_API_PROXY_URL.replace(/\/$/, '')
+  : '/api';
 
 export const getHeroById = async (id: string) => {
   try {
-    const response = await axios.get(`${BASE_PROXY_URL}?path=${id}`);
+    const url = import.meta.env.PROD
+      ? `${BASE_PROXY_URL}?path=${id}`
+      : `${BASE_PROXY_URL}/${id}`;
+
+    const response = await axios.get(url);
     return transformHeroData(response.data);
   } catch (error) {
     throw new Error(`Failed to fetch hero by ID: ${id}. ${error.message}`);
@@ -14,7 +20,11 @@ export const getHeroById = async (id: string) => {
 
 export const searchHeroByName = async (name: string): Promise<number[]> => {
   try {
-    const response = await axios.get(`${BASE_PROXY_URL}?path=search/${name}`);
+    const url = import.meta.env.PROD
+      ? `${BASE_PROXY_URL}?path=search/${name}`
+      : `${BASE_PROXY_URL}/search/${name}`;
+    const response = await axios.get(url);
+
     const data = response.data;
 
     if (data.response !== 'success') {
