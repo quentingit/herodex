@@ -76,14 +76,39 @@ git clone https://github.com/username/herodex.git
 cd herodex
 ```
 
-### 3. Installer les dépendances
+### **3. Ajouter un fichier `.env`**
+Crée un fichier `.env` à la racine du projet avec le contenu suivant :
+
+- **`VITE_SUPERHERO_API_KEY`** : Clé API nécessaire pour accéder à l’API Superhero.
+  - Cette clé peut être obtenue en liant votre compte GitHub à l’API Superhero.
+  - Plus d’informations sur l’API sont disponibles sur leur [site officiel](https://superheroapi.com).
+
+
+### 4. Installer les dépendances
 ```
 npm install
 ```
 
-### 4. Démarrer le projet
+### 5. Démarrer le projet
 ```
 npm run dev
 ```
 
 Accède à l’application sur [http://localhost:5173](http://localhost:5173).
+
+---
+
+## **STORYBOOK**
+
+### 1. Démarrer Storybook
+```
+npm run storybook
+```
+
+<img src="./docs/assets/storybook.png" alt="Storybook" style="width: 50%; height: auto;" />
+
+
+
+
+
+
