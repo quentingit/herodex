@@ -27,7 +27,8 @@ Superman.args = {
   firstAppearance: 'Action Comics #1 (1938)',
   groupAffiliation: 'Justice League',
   relatives: 'Jonathan and Martha Kent (adoptive parents)',
-  imageUrl: 'https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png',
+  imageUrl:
+    'https://www.francetvinfo.fr/pictures/gqzdjgiEXROHvpL8SQt_dfOLCyE/1200x1200/2019/04/12/hub_super01_cvr_1500_5b3e561f3788f5.51606704.jpg',
 };
 
 export const Batman = Template.bind({});
