@@ -1,25 +1,60 @@
 # **Herodex**
 
-**Herodex** est un tableau de bord interactif pour explorer les statistiques et informations sur les super-héros.
+Le projet **Herodex** est déployé en ligne et accessible sur [Vercel](https://herodex-git-dev-quentin-s-projects-1c49e330.vercel.app/) , ou [https://herodex-git-dev-quentin-s-projects-1c49e330.vercel.app/](https://herodex-git-dev-quentin-s-projects-1c49e330.vercel.app/)
 
----
+**Herodex** est un petit projet réalisé en une journée pour démontrer la création d’une application en suivant de bonnes pratiques de développement. Il intègre TypeScript pour un typage robuste, ESLint et Prettier pour un code propre, et des outils comme Husky, lint-staged et Commitlint pour des commits respectant les standards. L’interface utilisateur utilise React, TailwindCSS pour un design rapide, et Storybook pour documenter les composants. Les données sont gérées avec Axios et React Query, tandis que Zod valide les réponses API. Enfin, des tests automatisés avec Vitest et React Testing Library assurent la fiabilité du projet. Le déploiement est automatique, configuré avec Vercel, incluant un proxy pour gérer les requêtes API et les clés en développement comme en production, tout en respectant les politiques CORS.
 
-## **Stack technique**
+### Fonctionnalités de Herodex
 
-Ce projet utilise les technologies et outils suivants :
+Herodex est un tableau de bord interactif qui permet d'explorer et de visualiser des super-héros de manière intuitive. Grâce à l’API [SuperheroAPI](https://superheroapi.com/), il est possible de rechercher des super-héros par leur ID ou leur nom. Par défaut, une carte aléatoire de super-héros est générée à l’ouverture de l’application. Vous pouvez ajouter d’autres super-héros aléatoires ou les rechercher par leur nom, et les supprimer individuellement si nécessaire. Chaque super-héros dispose d’une carte interactive qui affiche ses statistiques et des informations détaillées pour une meilleure exploration. 
 
+## **Stack technique** 
+
+#### Développement Frontend
 - **React** : Librairie JavaScript pour construire des interfaces utilisateur interactives.
 - **TypeScript** : Super-ensemble de JavaScript pour un typage statique et une meilleure maintenabilité du code.
+- **TailwindCSS** : Framework CSS utilitaire pour un développement rapide et des designs modernes.
+- **Storybook** : Outil pour développer et documenter les composants de manière isolée.
+- **Chart.js** : Librairie puissante pour créer des graphiques interactifs et visuels.
+
+#### Outils de Build et de Qualité
 - **Vite** : Outil de build rapide et léger pour les applications web modernes.
 - **ESLint** : Outil de linting pour identifier et corriger les erreurs de code.
 - **Prettier** : Formateur de code pour un style de code cohérent.
 - **Husky** : Outil pour ajouter des hooks Git, comme l'exécution automatique de tests ou de linting avant les commits.
 - **lint-staged** : Exécute des scripts (linting, formattage) uniquement sur les fichiers modifiés.
 - **Commitlint** : Vérifie que les messages de commit respectent les conventions définies.
-- **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
 
+#### Gestion de Données et API
+- **Axios** : Bibliothèque pour effectuer des requêtes HTTP facilement.
+- **React Query** : Gestionnaire de requêtes et de cache côté client pour des données performantes et synchronisées.
+- **React Query Devtools** : Outil de développement pour inspecter et gérer les requêtes dans React Query.
+- **Vercel** : Plateforme de déploiement continu utilisée pour héberger l'application, avec gestion automatique des changements à chaque commit et configuration d'un proxy pour les appels API en production.
+
+
+#### Validation et Schémas
+- **Zod** : Librairie de validation et de schémas TypeScript pour des données robustes.
+
+#### Tests
+- **React Testing Library** : Outil pour tester les composants React de manière efficace et fiable.
+- **Vitest** : Framework de test moderne et rapide, optimisé pour Vite.
 ---
 
+### Complexité de Développement
+
+L'un des aspects techniques de ce projet a été la mise en place d'un proxy fonctionnel pour Vercel, afin de gérer les requêtes vers l'API externe (superheroapi.com) de manière uniforme, que ce soit en développement local ou en production.
+
+Cela a nécessité :
+
+- **Modification de l'API** : Le fichier d'API a été adapté pour utiliser une URL de base configurable via `import.meta.env.VITE_API_PROXY_URL`, permettant de centraliser la gestion des requêtes vers le proxy.
+- **Création d'un fichier proxy** : 
+  - **`api/proxy.js`** : Ce fichier sert de point de passage entre l'application et l'API externe, incluant la gestion des erreurs et l'injection sécurisée de la clé API.
+- **Configuration pour Vercel** : 
+  - **`vercel.json`** : Un fichier pour définir les réécritures d'URL et les en-têtes CORS nécessaires, garantissant que les requêtes passent correctement en environnement local et en production.
+
+Ces ajustements ont permis de gérer les contraintes liées aux politiques CORS et de simplifier l'interaction avec l'API tout en assurant la sécurité et la portabilité entre environnements.
+
+---
 ## **Installation**
 
 ### 1. Prérequis
