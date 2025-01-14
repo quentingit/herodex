@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { transformHeroData } from './schemas/heroSchema';
 
-const BASE_PROXY_URL = import.meta.env.VITE_API_PROXY_URL.replace(/\/$/, ''); // Retire le slash final si présent
+const BASE_PROXY_URL = import.meta.env.VITE_API_PROXY_URL.replace(/\/$/, '');
 
 export const getHeroById = async (id: string) => {
   try {
