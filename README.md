@@ -1,6 +1,6 @@
 # **Herodex**
 
-Le projet **Herodex** est déployé en ligne et accessible sur [Vercel](https://herodex-teal.vercel.app) , ou [herodex-teal.vercel.app](https://herodex-teal.vercel.app)
+Le projet **Herodex** est déployé en ligne et accessible sur [Vercel](https://herodex.quentinberanger.com/) , ou [https://herodex.quentinberanger.com/](https://herodex.quentinberanger.com/)
 
 ![Home Herodex](./docs/assets/home-project.png)
 
